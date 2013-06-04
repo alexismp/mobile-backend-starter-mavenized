@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 solutions-mobile-backend-starter-android-client
 ===============================================
 
@@ -43,3 +44,11 @@ If you see any compilation or build errors they most likely can be resolved by f
 [4]: https://developers.google.com/appengine/docs/java/endpoints/
 [5]: https://github.com/GoogleCloudPlatform/solutions-mobile-backend-starter-java
 
+=======
+mobile-backend-starter-mavenized
+================================
+
+Maven version of https://github.com/GoogleCloudPlatform/solutions-mobile-backend-starter-java
+Need to manually install the GCM jar:
+$ mvn -DartifactId=gcm-server -DgroupId=com.google.android.gcm -Dversion=1.0.2 -Dpackaging=jar -Dfile=/path/to/gcm-server-1.0.2.jar -DgeneratePom=false install:install-file
+>>>>>>> 5123bddee89a858245f0bf5105f22d6db16857bb
