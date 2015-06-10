@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.google.cloud.backend</groupId>
@@ -12,12 +11,22 @@
 
     <properties>
         <appengine.app.version>beta</appengine.app.version>
-        <appengine.target.version>1.8.0</appengine.target.version>
+        <appengine.target.version>1.9.21</appengine.target.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
         <!-- Compile/runtime dependencies -->
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-1.0-sdk</artifactId>
@@ -38,7 +47,7 @@
             <artifactId>gcm-server</artifactId>
             <version>1.0.2</version>
         </dependency>
-                    
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
@@ -65,7 +74,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-       
+
     <build>
         <plugins>
             <plugin>
@@ -73,8 +82,8 @@
                 <version>2.5.1</version>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
 
@@ -109,9 +118,9 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <!-- YOURENDPOINTSCLASSES(comma separated)-->
+                    <!-- YOURENDPOINTSCLASSES(comma separated) -->
                     <serviceClassNames>com.google.cloud.backend.spi.EndpointV1</serviceClassNames>
-                </configuration>                
+                </configuration>
             </plugin>
         </plugins>
     </build>
