@@ -11,6 +11,7 @@ import com.xeiam.xchange.dto.Order.OrderType;
 import com.xeiam.xchange.dto.marketdata.OrderBook;
 import com.xeiam.xchange.dto.trade.LimitOrder;
 import com.xeiam.xchange.dto.trade.Wallet;
+import com.xeiam.xchange.kraken.KrakenExchange;
 
 public class LoadBidOrderJob extends Job2<LimitOrder, CurrencyPair, Wallet> {
 
@@ -18,7 +19,7 @@ public class LoadBidOrderJob extends Job2<LimitOrder, CurrencyPair, Wallet> {
 
 	@Override
 	public Value<LimitOrder> run(CurrencyPair currencyPair, Wallet wallet) throws Exception {
-		Exchange exchange = XChangeFactory.get(0);
+		Exchange exchange = XChangeFactory.get(KrakenExchange.class);
 		OrderBook orderBook = exchange.getPollingMarketDataService().getOrderBook(currencyPair, 10);
 		for (LimitOrder limitOrder : orderBook.getAsks()) {
 			if (limitOrder.getTradableAmount().multiply(limitOrder.getLimitPrice()).compareTo(wallet.getAvailable()) > 0) {

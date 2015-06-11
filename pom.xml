@@ -30,7 +30,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.xeiam.xchange</groupId>
-			<artifactId>xchange-cryptsy</artifactId>
+			<artifactId>xchange-hitbtc</artifactId>
 			<version>${xchange.version}</version>
 		</dependency>
 		<dependency>

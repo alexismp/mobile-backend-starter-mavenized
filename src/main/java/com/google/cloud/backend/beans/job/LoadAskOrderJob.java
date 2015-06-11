@@ -11,6 +11,7 @@ import com.xeiam.xchange.dto.Order.OrderType;
 import com.xeiam.xchange.dto.marketdata.OrderBook;
 import com.xeiam.xchange.dto.trade.LimitOrder;
 import com.xeiam.xchange.dto.trade.Wallet;
+import com.xeiam.xchange.hitbtc.HitbtcExchange;
 
 public class LoadAskOrderJob extends Job3<LimitOrder, CurrencyPair, LimitOrder, Wallet> {
 
@@ -18,7 +19,7 @@ public class LoadAskOrderJob extends Job3<LimitOrder, CurrencyPair, LimitOrder, 
 
 	@Override
 	public Value<LimitOrder> run(CurrencyPair currencyPair, LimitOrder bOrder, Wallet wallet) throws Exception {
-		Exchange exchange = XChangeFactory.get(1);
+		Exchange exchange = XChangeFactory.get(HitbtcExchange.class);
 		OrderBook orderBook = exchange.getPollingMarketDataService().getOrderBook(currencyPair, 10);
 		for (LimitOrder limitOrder : orderBook.getBids()) {
 
