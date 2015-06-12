@@ -5,6 +5,17 @@
          version="2.5" 
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
+
+    <servlet>
+        <servlet-name>checktrading</servlet-name>
+        <servlet-class>com.google.cloud.backend.spi.CheckServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>checktrading</servlet-name>
+        <url-pattern>/checktrading</url-pattern>
+    </servlet-mapping>
+
+
     <servlet>
         <servlet-name>SystemServiceServlet</servlet-name>
         <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
