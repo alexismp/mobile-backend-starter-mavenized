@@ -5,12 +5,23 @@
          version="2.5" 
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
+
+    <servlet>
+        <servlet-name>checktrading</servlet-name>
+        <servlet-class>com.google.cloud.backend.spi.CheckServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>checktrading</servlet-name>
+        <url-pattern>/checktrading</url-pattern>
+    </servlet-mapping>
+
+
     <servlet>
         <servlet-name>SystemServiceServlet</servlet-name>
         <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
         <init-param>
             <param-name>services</param-name>
-            <param-value>com.google.cloud.backend.spi.EndpointV1</param-value>
+            <param-value>com.google.cloud.backend.spi.TradingEndpoint</param-value>
         </init-param>
     </servlet>
 
@@ -43,6 +54,16 @@
         <url-pattern>/admin/cconf</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+  		<servlet-name>PipelineServlet</servlet-name>
+  		<servlet-class>com.google.appengine.tools.pipeline.impl.servlets.PipelineServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+  		<servlet-name>PipelineServlet</servlet-name>
+  		<url-pattern>/_ah/pipeline/*</url-pattern>
+	</servlet-mapping>
+    
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Admin</web-resource-name>
